@@ -1,0 +1,13 @@
+html{
+    background-color: aqua;
+}
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
