@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capstone Project</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
 <body>
-    
-    <form action="" method="post">
-        <input type="text" name="lat" placeholder="Latitude">
-        <input type="text" name="lon" placeholder ="Longitude">
-        <input type="submit" value="Get Information">
-
-    </form>
-    <div>
-    <p><%= locals.data %></p>
+    <div class="container">
+        <h1>Wetter</h1>
+        <form action="/" method="post" class="weather-form">
+            <input type="text" name="city" placeholder="Name der Stadt" class="input-text">
+            <input type="submit" value="Wetter anzeigen" class="submit-button">
+        </form>
+        <% if (locals.data) { %>
+        <div class="weather-info">
+            <h2>Stadt: <%= data.city.name %></h2>
+            <div class="weather-detail">
+                <h3>Sonnenaufgang: <%= sunrise %></h3>
+                <h3>Sonnenuntergang: <%= sunset %></h3>
+            </div>
+            <div class="weather-detail">
+                <h3>Uhrzeit: <%= time %></h3>
+                <h3>Temperatur: <%= temp %>°C</h3>
+                <h3>Wetter: <%= weather %></h3>
+                <img src="http://openweathermap.org/img/wn/<%= icon %>@2x.png" alt="Weather Icon" class="weather-icon">
+            </div>
+        </div>
+        <% } else { %>
+        <div class="error-message">
+            <h2>Stadt existiert nicht</h2>
+        </div>
+        <% } %>
     </div>
 </body>
 </html>
